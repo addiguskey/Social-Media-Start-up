@@ -1,0 +1,24 @@
+{
+  "name": "social-media-start-up",
+  "version": "1.0.0",
+  "description": "[![MIT](https://img.shields.io/badge/License-MIT-yellowgreen.svg)](https://choosealicense.com/licenses/mit/)",
+  "main": " server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/addiguskey/Social-Media-Start-up.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/addiguskey/Social-Media-Start-up/issues"
+  },
+  "homepage": "https://github.com/addiguskey/Social-Media-Start-up#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0"
+  }
+}

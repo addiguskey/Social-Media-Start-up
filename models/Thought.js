@@ -5,19 +5,19 @@ const reactionSchema = require("./Reaction");
 //Thought model has thoughtText, creatdAt, username, reactions
 const thoughtSchema = new mongoose.Schema(
   {
-    thoughtTest: {
+    thoughtText: {
       type: String,
       required: true,
       minLength: 1,
       maxLength: 280,
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
     username: {
       type: String,
       required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
     },
     reactions: [reactionSchema],
   },

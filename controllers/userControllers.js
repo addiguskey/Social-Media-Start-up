@@ -1,10 +1,6 @@
 const { ObjectId } = require("mongoose").Types;
 const { User } = require("../models");
 
-//ObjectId datatype for reaction Id
-// const Schema = mongoose.Types;
-// let ObjectId = Schema.ObjectId;
-
 module.exports = {
   //setting up CRUD routes for User
   //GET all users
@@ -37,6 +33,7 @@ module.exports = {
         email: req.body.email,
       });
       newUser.save();
+      console.log(newUser);
       res.status(200).json(newUser);
     } catch (err) {
       console.log(err);
@@ -50,8 +47,8 @@ module.exports = {
         { _id: ObjectId(req.params.id) },
         { new: true }
       );
-      res.status(200).json(updateUser);
       console.log(`Updated: ${updateUser}`);
+      res.status(200).json(updateUser);
     } catch (err) {
       console.log(err);
       res.status(500), json(err);
@@ -78,6 +75,7 @@ module.exports = {
         { _id: req.params.userId },
         { $addToSet: { friends: req.body } }
       );
+      console.log(newFriend);
       res.status(200).json(newFriend);
     } catch (err) {
       console.log(err);

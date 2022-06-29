@@ -47,7 +47,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 # Badges
 
-![JS](https://img.shields.io/static/v1?label=JavaScript&message=47.7%&color=yellow) ![HTML](https://img.shields.io/static/v1?label=HTML&message=37.1%&color=red) ![CSS](https://img.shields.io/static/v1?label=CSS&message=15.2%&color=blueviolet)
+![JS](https://img.shields.io/static/v1?label=JavaScript&message=100%&color=yellow)
 
 # Questions
 

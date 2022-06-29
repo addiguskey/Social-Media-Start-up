@@ -37,7 +37,7 @@ module.exports = {
         username: req.body.username,
       });
       User.findOneAndUpdate(
-        { _id: req.user._id },
+        { _id: ObjectId(req.params.id) },
         { $push: { newThought: res._id } },
         { new: true }
       );

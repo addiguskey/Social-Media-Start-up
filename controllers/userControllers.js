@@ -72,7 +72,7 @@ module.exports = {
   postNewFriend: async (req, res) => {
     try {
       const newFriend = await User.findOneAndUpdate(
-        { _id: req.params.userId },
+        { _id: ObjectId(req.params.id) },
         { $addToSet: { friends: req.body } }
       );
       console.log(newFriend);

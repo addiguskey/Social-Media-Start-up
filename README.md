@@ -31,6 +31,8 @@ git@github.com:addiguskey/Social-Media-Start-up.git
 
 # Usage
 
+![walk-thru](./images/socials-walkthru.gif)
+
 ```
 GIVEN a social network API
 WHEN I enter the command to invoke the application

@@ -92,10 +92,11 @@ module.exports = {
     try {
       const oldFriend = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $pull: { friends: { friendsId: req.params.friendId } } },
-        { new: true, runValidators: true }
+        { $pull: { friends: req.params.friendId } },
+        { new: true }
       );
-      res.status(200).json({ message: `${oldFriend} has been removed!` });
+      console.log(oldFriend);
+      res.status(200).json(oldFriend);
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

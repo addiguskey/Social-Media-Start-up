@@ -1,11 +1,13 @@
 const { ObjectId } = require("mongoose").Types;
 const { Thought, User, Reaction } = require("../models");
+const reactionSchema = require("../models/Reaction");
 
 // "/api/thoughts"
 
 module.exports = {
   // 1. GET for all thoughts
   getAllThoughts: async (req, res) => {
+    console.log("hello");
     try {
       const thoughts = await Thought.find({});
       console.log(thoughts);
@@ -32,13 +34,13 @@ module.exports = {
   // (don't forget to push the created thought's _id to the associated user's "thoughts" array field)
   postNewThought: async (req, res) => {
     try {
-      const newThought = await new Thought({
+      const newThought = await Thought.create({
         thoughtText: req.body.thoughtText,
         username: req.body.username,
       });
-      User.findOneAndUpdate(
+      const postThought = await User.findOneAndUpdate(
         { _id: ObjectId(req.params.id) },
-        { $push: { newThought: res._id } },
+        { $push: { thoughts: newThought._id } },
         { new: true }
       );
       console.log(newThought);
@@ -53,6 +55,7 @@ module.exports = {
     try {
       const updateThought = await Thought.findOneAndUpdate(
         { _id: ObjectId(req.params.id) },
+        { thoughtText: req.body.thoughtText },
         { new: true }
       );
       console.log(updateThought);
@@ -79,8 +82,10 @@ module.exports = {
     try {
       const newReaction = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $addToSet: { reactions: req.body } }
+        { $push: { reactions: req.body } },
+        { new: true }
       );
+
       console.log(newReaction);
       res.status(200).json(newReaction);
     } catch (err) {
@@ -93,7 +98,8 @@ module.exports = {
     try {
       const oldReaction = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { reactions: { reactionsId: req.params.reactionId } } }
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
+        { new: true }
       );
       console.log(oldReaction);
       res.status(200).json(oldReaction);

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const User = require("./User");
+// const User = require("./User");
 const reactionSchema = require("./Reaction");
 //Thought model has thoughtText, creatdAt, username, reactions
 const thoughtSchema = new mongoose.Schema(
@@ -13,7 +13,7 @@ const thoughtSchema = new mongoose.Schema(
     },
     username: {
       type: String,
-      required: true,
+      // required: true,
     },
     createdAt: {
       type: Date,

@@ -19,6 +19,7 @@ router.put("/:id", controller.updateUser);
 // 5. DELETE to remove user by its _id & their thoughts
 router.delete("/:id", controller.deleteUser);
 
+// "/api/users/:userId/friends/:friendId"
 // 6. POST to add a new friend
 router.post("/:userId/friends/:friendId", controller.postNewFriend);
 

@@ -23,6 +23,6 @@ router.delete("/:id", controller.deleteThought);
 router.post("/:thoughtId/reactions", controller.postNewReaction);
 
 // 7. DELETE to pull and remove a reaction by th reaction's "reactionId" value
-router.delete("/:thoughtId/reactions", controller.deleteReaction);
+router.delete("/:thoughtId/reactions/:reactionId", controller.deleteReaction);
 
 module.exports = router;
